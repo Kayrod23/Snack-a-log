@@ -1,8 +1,10 @@
-import React from 'react'
+
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+        <h1> Welcome to the Snack-a-log App</h1>
+    </div>
   )
 }
 
