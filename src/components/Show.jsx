@@ -15,7 +15,7 @@ function Show() {
         .catch((error) => {
             console.log(error);
         });
-    }, []);
+    }, [id]);
 
     function handleDelete () {
         axios.delete(`${process.env.REACT_APP_API_URL}/songs/${id}`)
