@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './Index.css';
 
 function Index() {
     const [snacks, setSnacks] = useState([]);

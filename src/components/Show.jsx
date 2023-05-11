@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import './Show.css';
 
 function Show() {
     const [snack, setSnack] = useState({});
