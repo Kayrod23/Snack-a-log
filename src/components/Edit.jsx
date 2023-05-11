@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './Edit.css';
 
 const Edit = ({ edit = false }) => {
   const [formData, setFormData] = useState({ name: '', image: '', protein: '', fiber: '', added_sugar: '', sodium: '', is_favorite: false });
   const { id } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (edit) {
