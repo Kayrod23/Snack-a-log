@@ -4,7 +4,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './Edit.css';
 
 const Edit = ({ edit = false }) => {
-  const [formData, setFormData] = useState({ name: '', image: '', protein: '', fiber: '', added_sugar: '', sodium: '', is_favorite: false });
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    image: '',
+    protein: '',
+    fiber: '', 
+    added_sugar: '', 
+    sodium: '', 
+    is_favorite: false });
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -16,7 +23,7 @@ const Edit = ({ edit = false }) => {
     }
   }, [edit, id]);
 
-  const handleChange = (e) => {
+  const handleTextChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -27,11 +34,11 @@ const Edit = ({ edit = false }) => {
     e.preventDefault();
     if (edit) {
       axios.put(`${process.env.REACT_APP_API_URL}/snacks/${id}`, formData)
-        .then(res => history.push(`/snacks/${id}`))
+        .then(() => navigate(`/snacks/${id}`))
         .catch(err => console.log(err));
     } else {
       axios.post(`${process.env.REACT_APP_API_URL}/snacks/${id}`, formData)
-        .then(res => history.push(`/snacks/${res.data.id}`))
+        .then(() => navigate(`/snacks/${id}`))
         .catch(err => console.log(err));
     }
   };
