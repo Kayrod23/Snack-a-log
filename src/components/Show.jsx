@@ -26,8 +26,8 @@ function Show() {
     };
 
   return (
-    <div>
-        <div>
+    <div className="show-container">
+        <div className="show-container">
             <img src={snack.image} alt={snack.name}></img>
             <p>Name: {snack.name}</p>
             <p>Protein: {snack.protein}g</p>
@@ -36,9 +36,9 @@ function Show() {
             <p>Sodium: {snack.sodium}mg</p>
             <p>Favorite: {snack.is_favorite ? "⭐️" : null}</p>
         </div>
-        <div>
+        <div className="show-container-button">
             <button><Link to={"/snacks"}>Back</Link></button>
-            <button><Link to={`/snacks/${id}`}>Edit</Link></button>
+            <button><Link to={`/snacks/${id}/edit`}>Edit</Link></button>
             <button onClick={handleDelete}>Delete</button>
         </div>
     </div>

@@ -23,11 +23,11 @@
     margin-top: 20px;
 }
 
-.show-container button {
+.show-container-button button {
     padding: 10px;
 }
 
-.show-container a {
+.show-container-button a {
     text-decoration: none;
     color: #000;
 }

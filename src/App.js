@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
     <Nav/>
     <Routes>
-    <Route path="*" element={<Error/>}/> 
+      <Route path="*" element={<Error/>}/> 
       <Route path="/" element={<Home/>}/>
       <Route path="/snacks" element={<Index/>}/>
       <Route path="/snacks/new" element={<New/>}/>

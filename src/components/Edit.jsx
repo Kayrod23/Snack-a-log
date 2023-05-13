@@ -23,12 +23,14 @@ const Edit = ({ edit = false }) => {
     }
   }, [edit, id]);
 
-  const handleTextChange = (e) => {
+  const handleChange = (e) => {
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: value
     });
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,10 +46,38 @@ const Edit = ({ edit = false }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="snack-form">
-      {/* not sure what to put in this return section here */}
-      <button type="submit">{edit ? 'Update Snack' : 'Add Snack'}</button>
-    </form>
+    <form onSubmit={handleSubmit}>
+  <label>
+    Name:
+    <input type="text" name="name" value={formData.name} onChange={handleChange} />
+  </label>
+  <label>
+    Image URL:
+    <input type="text" name="image" value={formData.image} onChange={handleChange} />
+  </label>
+  <label>
+    Protein:
+    <input type="text" name="protein" value={formData.protein} onChange={handleChange} />
+  </label>
+  <label>
+    Fiber:
+    <input type="text" name="fiber" value={formData.fiber} onChange={handleChange} />
+  </label>
+  <label>
+    Added Sugar:
+    <input type="text" name="added_sugar" value={formData.added_sugar} onChange={handleChange} />
+  </label>
+  <label>
+    Sodium:
+    <input type="text" name="sodium" value={formData.sodium} onChange={handleChange} />
+  </label>
+  <label>
+    Favorite:
+    <input type="checkbox" name="is_favorite" checked={formData.is_favorite} onChange={handleChange} />
+  </label>
+  <button type="submit">{edit ? 'Update Snack' : 'Add Snack'}</button>
+</form>
+
   );
 };
 
