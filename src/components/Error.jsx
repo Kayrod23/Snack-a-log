@@ -2,7 +2,7 @@ import './Error.css';
 
 function Error() {
   return (
-    <div>Url is Incorrect!</div>
+    <div className="error-message">Url is Incorrect!</div>
   )
 }
 

@@ -1,17 +1,15 @@
 .index-container {
     text-align: center;
-}
-
-.index-container h1 {
-    font-size: 2rem;
-    color: #333;
+    position: absolute;
+    left: 10%;
+    width: 80%
 }
 
 .index-container div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 15px 0px;
 }
 
 .index-container img {
@@ -19,8 +17,27 @@
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
+    margin: 15px 0px 0px 0px;
+    box-shadow: 5px 5px 5px black;
 }
 
 .index-container h3 {
     margin-top: 10px;
+}
+
+.index-container a {
+    text-decoration: none;
+}
+
+.data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: red;
+}
+
+.indexCard {
+    background-color: white;
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px white;
 }

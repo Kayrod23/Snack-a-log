@@ -35,17 +35,13 @@ function New() {
     });
   };
 
-  // function handleCheckboxChange (event) {
-  //   setSnackData({ ...snackData, is_favorite: event.target.checked});
-  // }
-
   const handleFormSubmit = (event) => {
     event.preventDefault();
     submitNewSnack(snackData);
   };
 
   return (
-    <div className="addNewSnack">
+    <div className="snack-container">
        <form onSubmit={handleFormSubmit}>
   <label>
     Name:
@@ -96,11 +92,12 @@ function New() {
     checked={snackData.is_favorite} 
     onChange={handleInputChange} />
   </label>
+  <div className="newButton">
   <button type="submit">Submit</button>
-        <br />
-        <Link to={`/`}>
-          <button className="cancelNewSnack">Cancel</button>
-        </Link>
+    <Link to={`/`}>
+      <button className="cancelNewSnack">Cancel</button>
+    </Link>
+  </div>
       </form>
     </div>
   );

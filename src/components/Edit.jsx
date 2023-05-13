@@ -38,6 +38,7 @@ const Edit = () => {
   };
 
   return (
+    <div className="editDiv">
     <form onSubmit={handleSubmit}>
   <label>
     Name:
@@ -90,7 +91,7 @@ const Edit = () => {
   </label>
   <button type="submit">Edit</button>
 </form>
-
+</div>
   );
 };
 

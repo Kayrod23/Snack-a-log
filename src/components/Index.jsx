@@ -18,15 +18,18 @@ function Index() {
 
   return (
     <div className="index-container">
-        <h1>Snacks</h1>
+        <section className="data">
         {snacks ? snacks.map((snack, index) => 
             <Link key={index} to={`/snacks/${snack.id}`}>
                 <div>
-                    <img src={snack.image} alt={snack.name}/>
-                    <h3>{snack.name}</h3>
+                    <div className="indexCard">
+                        <img src={snack.image} alt={snack.name}/>
+                        <h3>{(snack.protein > 5 || snack.fiber > 5 ) && (snack.added_sugar < 5 && snack.sodium < 140) ? "❤️" : "❤️‍🩹" } {snack.name}</h3>
+                    </div>
                 </div>
             </Link>
         ) : null}
+        </section>
     </div>
   )
 }
