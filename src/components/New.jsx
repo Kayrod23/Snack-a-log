@@ -3,14 +3,13 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import './New.css';
 
-
 function New() {
   const navigate = useNavigate();
-
   const submitNewSnack = (snackData) => {
     axios
       .post(`${process.env.REACT_APP_API_URL}/snacks`, snackData)
       .then(() => {
+        console.log("here")
         navigate(`/snacks`);
       })
       .catch((error) => {
@@ -24,16 +23,21 @@ function New() {
     protein: "",
     added_sugar: "",
     image: "",
-    is_healthy: false,
+    sodium: "",
+    is_favorite: false,
   });
 
-  const handleInputChange = (event) => {
-    setSnackData({ ...snackData, [event.target.id]: event.target.value });
+  const handleInputChange = (e) => {
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    setSnackData({
+      ...snackData,
+      [e.target.name]: value
+    });
   };
 
-  const toggleHealthyStatus = () => {
-    setSnackData({ ...snackData, is_healthy: !snackData.is_healthy });
-  };
+  // function handleCheckboxChange (event) {
+  //   setSnackData({ ...snackData, is_favorite: event.target.checked});
+  // }
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -42,38 +46,58 @@ function New() {
 
   return (
     <div className="addNewSnack">
-       <form onSubmit={handleSubmit}>
+       <form onSubmit={handleFormSubmit}>
   <label>
     Name:
-    <input type="text" name="name" value={formData.name} onChange={handleChange} />
+    <input type="text" 
+    name="name" 
+    value={snackData.name} 
+    onChange={handleInputChange} />
   </label>
   <label>
     Image URL:
-    <input type="text" name="image" value={formData.image} onChange={handleChange} />
+    <input type="text" 
+    name="image" 
+    value={snackData.image} 
+    onChange={handleInputChange} />
   </label>
   <label>
     Protein:
-    <input type="text" name="protein" value={formData.protein} onChange={handleChange} />
+    <input type="number" 
+    name="protein" 
+    value={snackData.protein} 
+    onChange={handleInputChange} />
   </label>
   <label>
     Fiber:
-    <input type="text" name="fiber" value={formData.fiber} onChange={handleChange} />
+    <input type="number" 
+    name="fiber" 
+    value={snackData.fiber} 
+    onChange={handleInputChange} />
   </label>
   <label>
     Added Sugar:
-    <input type="text" name="added_sugar" value={formData.added_sugar} onChange={handleChange} />
+    <input type="number" 
+    name="added_sugar" 
+    value={snackData.added_sugar} 
+    onChange={handleInputChange} />
   </label>
   <label>
     Sodium:
-    <input type="text" name="sodium" value={formData.sodium} onChange={handleChange} />
+    <input type="number" 
+    name="sodium" 
+    value={snackData.sodium} 
+    onChange={handleInputChange} />
   </label>
   <label>
     Favorite:
-    <input type="checkbox" name="is_favorite" checked={formData.is_favorite} onChange={handleChange} />
+    <input type="checkbox" 
+    name="is_favorite" 
+    checked={snackData.is_favorite} 
+    onChange={handleInputChange} />
   </label>
-  <button type="submit">{edit ? 'Update Snack' : 'Add Snack'}</button>
+  <button type="submit">Submit</button>
         <br />
-        <input className="submitNewSnack" type="submit" />
         <Link to={`/`}>
           <button className="cancelNewSnack">Cancel</button>
         </Link>

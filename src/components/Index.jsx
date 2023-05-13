@@ -17,7 +17,7 @@ function Index() {
     }, []);
 
   return (
-    <div>
+    <div className="index-container">
         <h1>Snacks</h1>
         {snacks ? snacks.map((snack, index) => 
             <Link key={index} to={`/snacks/${snack.id}`}>

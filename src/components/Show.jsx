@@ -22,6 +22,9 @@ function Show() {
         axios.delete(`${process.env.REACT_APP_API_URL}/songs/${id}`)
         .then(() => {
             navigate("/snacks");
+        })
+        .catch((error) => {
+            console.log(error);
         });
     };
 
