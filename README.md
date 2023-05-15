@@ -1,3 +1,5 @@
+# snack-a-log-front-end
+
 [front-end deployment]( https://snack-a-log-app-project.netlify.app/)
 
 [back-end deployment](https://snack-a-log-x8pw.onrender.com/)
