@@ -19,7 +19,7 @@ function Show() {
     }, [id]);
 
     function handleDelete () {
-        axios.delete(`${process.env.REACT_APP_API_URL}/songs/${id}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/snacks/${id}`)
         .then(() => {
             navigate("/snacks");
         })
